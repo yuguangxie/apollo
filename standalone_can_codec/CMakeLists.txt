@@ -16,5 +16,12 @@ target_include_directories(demo_can_codec PUBLIC
 add_executable(test_generated_codec tests/test_generated_codec.cc)
 target_link_libraries(test_generated_codec PRIVATE demo_can_codec)
 
+add_executable(test_known_payload tests/test_known_payload.cc)
+target_link_libraries(test_known_payload PRIVATE demo_can_codec)
+
+add_executable(encode_decode_demo examples/encode_decode_demo.cc)
+target_link_libraries(encode_decode_demo PRIVATE demo_can_codec)
+
 enable_testing()
 add_test(NAME test_generated_codec COMMAND test_generated_codec)
+add_test(NAME test_known_payload COMMAND test_known_payload)
